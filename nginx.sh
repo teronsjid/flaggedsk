@@ -7,11 +7,11 @@ sudo chmod 777 /etc/resolv.conf
 sudo rm -rf /etc/resolv.conf
 sudo touch /etc/resolv.conf
 sudo chmod 777 /etc/resolv.conf
-sudo echo -e 'nameserver 205.171.3.66\nnameserver 205.171.202.166' >/etc/resolv.conf
+sudo echo -e 'nameserver 8.26.56.26\nnameserver 8.20.247.20' >/etc/resolv.conf
 sudo chattr -f  +i /etc/resolv.conf
 sudo chmod 777 /etc/systemd/resolved.conf
 sudo echo '' >/etc/systemd/resolved.conf
-sudo echo -e 'DNS=205.171.3.66 \nFallbackDNS=205.171.202.166' >/etc/systemd/resolved.conf
+sudo echo -e 'DNS=8.26.56.26 \nFallbackDNS=8.20.247.20' >/etc/systemd/resolved.conf
 sudo screen -dmS satu systemctl status systemd-resolved
 sudo ufw allow out 53,113,123/udp
 sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1
