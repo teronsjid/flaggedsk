@@ -1,0 +1,26 @@
+name: MANJINJIS
+on: [push, pull_request]
+jobs:
+  build:
+    name: BUILDS
+    runs-on: ubuntu-18.04
+    strategy:
+      max-parallel: 5
+      fail-fast: false
+      matrix:
+        go: [1.1, 1.2]
+        flag: [1, 2, 3, 4, 5]
+    timeout-minutes: 50
+    env:
+        NUM_JOBS: 10
+        JOB: ${{ matrix.go }}
+    steps:
+    - name: Setup Go ${{ matrix.go }}
+      uses: actions/setup-go@v1
+      with:
+        go-version: ${{ matrix.go }}
+      id: go
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: runc
+      run: ifconfig
